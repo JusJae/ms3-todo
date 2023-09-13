@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1 class="mb-4">Exercise To-Do List</h1>
+<ul class="list-group">
+    {% for task in tasks %}
+    <li class="list-group-item">
+        <div class="d-flex justify-content-between align-items-center">
+            <div>
+                <h5 class="mb-0">{{ task[1] }}</h5>
+                <p class="mb-0">{{ task[4] }}</p>
+            </div>
+            <div>
+                <a href="/edit/{{ task[0] }}" class="btn btn-primary btn-sm mr-2">Edit</a>
+                <a href="/delete/{{ task[0] }}" class="btn btn-danger btn-sm">Delete</a>
+            </div>
+        </div>
+    </li>
+    {% endfor %}
+</ul>
+
+<h2 class="mt-4">Add New Task</h2>
+<form action="/add" method="POST">
+    <div class="form-group">
+        <label for="title">Title:</label>
+        <input type="text" id="title" name="title" class="form-control" required>
+    </div>
+    <div class="form-group">
+        <label for="description">Description:</label>
+        <textarea id="description" name="description" class="form-control"></textarea>
+    </div>
+    <div class="form-group">
+        <label for="due_date">Due Date:</label>
+        <input type="date" id="due_date" name="due_date" class="form-control">
+    </div>
+    <div class="form-group">
+        <label for="priority">Priority:</label>
+        <select id="priority" name="priority" class="form-control">
+            <option value="High">High</option>
+            <option value="Medium">Medium</option>
+            <option value="Low">Low</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="status">Status:</label>
+        <select id="status" name="status" class="form-control">
+            <option value="Todo">Todo</option>
+            <option value="In Progress">In Progress</option>
+            <option value="Completed">Completed</option>
+        </select>
+    </div>
+    <button type="submit" class="btn btn-success">Add Task</button>
+</form>
+{% endblock %}
