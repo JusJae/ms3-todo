@@ -6,5 +6,6 @@ __pycache__/
 *.py[cod]
 node_modules/
 venv/
-DS_Store
+*.DS_Store
+.vscode/
 ```
