@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1 class="mb-4">Create New To-Do</h1>
+<form action="/add" method="POST">
+    <div class="form-group">
+        <label for="title">Title:</label>
+        <input type="text" id="title" name="title" class="form-control" required>
+    </div>
+    <div class="form-group">
+        <label for="description">Description:</label>
+        <textarea id="description" name="description" class="form-control"></textarea>
+    </div>
+
+    <div class="form-group">
+        <label for="category">Category</label>
+        <input type="text" id="category" name="category" class="form-control" required>
+    </div>
+
+    <div class="form-group">
+        <label for="repetitions">Repetitions</label>
+        <input type="number" id="repetitions" name="repetitions" class="form-control" required>
+    </div>
+
+    <div class="form-group">
+        <label for="sets">Sets</label>
+        <input type="number" id="sets" name="sets" class="form-control" required>
+    </div>
+
+    <div class="form-group">
+        <label for="due_date">Due Date:</label>
+        <input type="date" id="due_date" name="due_date" class="form-control">
+    </div>
+    <div class="form-group">
+        <label for="due_time">Due Time:</label>
+        <input type="time" id="due_time" name="due_time" class="form-control">
+    </div>
+    
+    <div class="form-group">
+        <label for="priority">Priority:</label>
+        <select id="priority" name="priority" class="form-control">
+            <option value="High">High</option>
+            <option value="Medium">Medium</option>
+            <option value="Low">Low</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="status">Status:</label>
+        <select id="status" name="status" class="form-control">
+            <option value="Todo">Todo</option>
+            <option value="In Progress">In Progress</option>
+            <option value="Completed">Completed</option>
+        </select>
+    </div>
+    <button type="submit" class="btn btn-success">Create To-Do</button>
+</form>
+<a href="/" class="btn btn-secondary mt-3">Back to List</a>
+{% endblock %}
